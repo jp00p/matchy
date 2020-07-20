@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Title.gd" type="Script" id=1]
+[ext_resource path="res://TNG_Credits.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://star-trek-picard-sisko.jpg" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 2 )
+
+[node name="Title" type="Node"]
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -184.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 25
+custom_constants/margin_left = 25
+custom_constants/margin_bottom = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 1415.0
+margin_bottom = 159.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayTNG" type="Button" parent="MarginContainer/HBoxContainer"]
+margin_right = 690.0
+margin_bottom = 134.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "Play TNG"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayDS9" type="Button" parent="MarginContainer/HBoxContainer"]
+margin_left = 700.0
+margin_right = 1390.0
+margin_bottom = 134.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Play DS9"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="MarginContainer/HBoxContainer/PlayTNG" to="." method="_on_PlayTNG_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/PlayDS9" to="." method="_on_PlayDS9_pressed"]
